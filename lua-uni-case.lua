@@ -22,7 +22,12 @@ local empty = {}
 local result = {}
 
 local casefold, casefold_lookup do
-  local p = require'lua-uni-parse'
+  local p
+  if kpse then
+    p = require'lua-uni-parse'
+  else
+    p = require'lua-uni-algos.parse'
+  end
   local l = lpeg or require'lpeg'
 
   local data = p.parse_file('CaseFolding', l.Cf(
