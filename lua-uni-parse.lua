@@ -47,11 +47,20 @@ local function parse_uni_file(filename, patt, func, ...)
   if func then
     return parse_uni_file(filename, lpeg.Cf(lpeg.Ct'' * patt^0 * -1, func), nil, ...)
   end
-  local resolved = kpse.find_file(filename .. '.txt')
-  if not resolved then
-    error(string.format("Unable to find Unicode datafile %q", filename))
+  local f
+  if kpse then
+    local resolved = kpse.find_file(filename .. '.txt')
+    if not resolved then
+      error(string.format("Unable to find Unicode datafile %q", filename))
+    end
+    f = io.open(resolved)
+  else
+    local datafile = require'datafile'
+    f = datafile.open('unicode-data/' .. filename .. '.txt', 'r')
+    if not f then
+      error(string.format("Unable to find Unicode datafile %q", filename))
+    end
   end
-  local f = assert(io.open(resolved))
   local data = f:read'*a'
   f:close()
   return lpeg.match(patt, data, 1, ...)

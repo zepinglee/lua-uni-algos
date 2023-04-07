@@ -14,7 +14,12 @@
 -- The Current Maintainer of this work is Marcel Krüger
 
 local extended_pictographic, property do
-  local p = require'lua-uni-parse'
+  local p
+  if kpse then
+    p = require'lua-uni-parse'
+  else
+    p = require'lua-uni-algos.parse'
+  end
   local l = lpeg or require'lpeg'
 
   extended_pictographic = p.parse_file('emoji-data',
