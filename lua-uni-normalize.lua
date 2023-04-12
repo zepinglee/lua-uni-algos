@@ -15,7 +15,6 @@
 
 -- Provide all four kinds of Unicode normalization
 
-local newtable = lua.newtable
 local move = table.move
 local char = utf8.char
 local codes = utf8.codes
