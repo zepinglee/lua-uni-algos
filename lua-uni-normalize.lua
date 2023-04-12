@@ -20,7 +20,7 @@ local char = utf8.char
 local codes = utf8.codes
 local unpack = table.unpack
 
-if tex.initialize then
+if tex and tex.initialize then
   kpse.set_program_name'kpsewhich'
 end
 local ccc, composition_mapping, decomposition_mapping, compatibility_mapping, nfc_qc do
@@ -319,7 +319,7 @@ local function to_nfkc(s)
   return to_nfc_generic(s, compatibility_mapping)
 end
 
-if tex.initialize then
+if tex and tex.initialize then
   return {
     NFD = to_nfd,
     NFC = to_nfc,
