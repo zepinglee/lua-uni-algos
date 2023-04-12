@@ -26,7 +26,7 @@ local casefold, casefold_lookup do
   if kpse then
     p = require'lua-uni-parse'
   else
-    p = require'lua-uni-algos.parse'
+    p = require'citeproc.lua-uni-algos.parse'
   end
   local l = lpeg or require'lpeg'
 

@@ -14,8 +14,8 @@
 -- The Current Maintainer of this work is Marcel Krüger
 
 return {
-  case = require'lua-uni-case',
-  graphemes = require'lua-uni-graphemes',
-  normalize = require'lua-uni-normalize',
-  words = require'lua-uni-words',
+  case = require'citeproc.lua-uni-algos.case',
+  graphemes = require'citeproc.lua-uni-algos.graphemes',
+  normalize = require'citeproc.lua-uni-algos.normalize',
+  words = require'citeproc.lua-uni-algos.words',
 }

@@ -15,7 +15,10 @@
 
 -- Just a simple helper module to make UCD parsing more readable
 
-local datafile = require'datafile'
+local datafile
+if not kpse then
+  datafile = require'datafile'
+end
 
 local lpeg = lpeg or require'lpeg'
 local R = lpeg.R

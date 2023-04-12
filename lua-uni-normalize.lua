@@ -37,7 +37,7 @@ local ccc, composition_mapping, decomposition_mapping, compatibility_mapping, nf
   if kpse then
     p = require'lua-uni-parse'
   else
-    p = require'lua-uni-algos.parse'
+    p = require'citeproc.lua-uni-algos.parse'
   end
   local l = lpeg
   local Cnil = l.Cc(nil)
