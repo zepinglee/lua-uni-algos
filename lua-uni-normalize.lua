@@ -38,7 +38,7 @@ local ccc, composition_mapping, decomposition_mapping, compatibility_mapping, nf
   else
     p = require'citeproc.lua-uni-algos.parse'
   end
-  local l = lpeg
+  local l = require("lpeg")
   local Cnil = l.Cc(nil)
   local letter = lpeg.R('AZ', 'az')
   ccc, decomposition_mapping, compatibility_mapping
