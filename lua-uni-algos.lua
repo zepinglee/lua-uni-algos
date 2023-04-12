@@ -24,7 +24,8 @@ else
   return {
     case = require'citeproc.lua-uni-algos.case',
     graphemes = require'citeproc.lua-uni-algos.graphemes',
-    normalize = require'citeproc.lua-uni-algos.normalize',
+    -- lua-uni-normalize requires LuaTeX
+    -- normalize = require'citeproc.lua-uni-algos.normalize',
     words = require'citeproc.lua-uni-algos.words',
   }
 end
