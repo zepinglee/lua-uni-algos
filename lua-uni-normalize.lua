@@ -40,7 +40,7 @@ local ccc, composition_mapping, decomposition_mapping, compatibility_mapping, nf
   end
   local l = require("lpeg")
   local Cnil = l.Cc(nil)
-  local letter = lpeg.R('AZ', 'az')
+  local letter = l.R('AZ', 'az')
   ccc, decomposition_mapping, compatibility_mapping
                     = unpack(p.parse_file('UnicodeData', l.Cf(
     l.Ct(l.Ct'' * l.Ct'' * l.Ct'') * (
