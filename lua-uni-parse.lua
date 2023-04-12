@@ -15,11 +15,6 @@
 
 -- Just a simple helper module to make UCD parsing more readable
 
-local datafile
-if not kpse then
-  datafile = require'datafile'
-end
-
 local lpeg = lpeg or require'lpeg'
 local R = lpeg.R
 local tonumber = tonumber
@@ -60,6 +55,7 @@ local function parse_uni_file(filename, patt, func, ...)
     end
     f = io.open(resolved)
   else
+    local datafile = require'datafile'
     f = datafile.open('submodules/unicode-data/' .. filename .. '.txt', 'r')
     if not f then
       error(string.format("Unable to find Unicode datafile %q", filename))
